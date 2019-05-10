@@ -2,11 +2,8 @@ body {
     display: flex;
     flex-direction: column;
 }
-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 184px;
+#header {
+    margin: 40px;
 }
 table {
     width: 100%;
@@ -20,4 +17,40 @@ th {
 }
 section {
     width: 85%;
+    margin: 40px;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+h4 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+#table-title {
+    margin-bottom: 20px;
+}
+#time-section{
+    display: flex;
+    flex-direction: row;
+}
+.input-div {
+    margin-bottom: 40px;
+}
+td:nth-child(1){
+    width: 20%;
+}
+td:nth-child(2){
+    width: 20%;
+}
+td:nth-child(3){
+    width: 20%;
+}
+td:nth-child(4){
+    width: 20%;
+}
+td:nth-child(5){
+    width: 20%;
 }

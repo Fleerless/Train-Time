@@ -8,47 +8,58 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="https://momentjs.com/downloads/moment.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="assets/javascript/app.js"></script>
-</head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script></head>
 <body>
     <header>
-        <h1>Train Schedule</h1>
-        <h4>I think I can... I think I can...</h4>
+        <div id="header">
+            <h1>Train Schedule</h1>
+            <h4>I think I can... I think I can...</h4>
+        </div>
     </header>
     <section>
-        <div>Current Train Schedule</div>
+        <div  id="time-section">
+            <div id="table-title">Current Time: </div>
+            <div id="current-time" style="margin-left: 20px"></div>
+        </div>
         <table>
-            <tr>
-                <th>Train Name</th>
-                <th>Destination</th>
-                <th>Frequency (mins)</th>
-                <th>Next Arrival</th>
-                <th>Minutes Away</t√h>
-            </tr>
+            <thead style="font-weight: bold">
+                <tr>
+                    <td>Train Name</td>
+                    <td>Destination</th>
+                    <td>Frequency</th>
+                    <td>Next Arrival</th>
+                    <td>Minutes Away</td>
+                </tr>
+            </thead>
+            <tbody id="table">
+            </tbody>
         </table>
     </section>
     <section>
-        <div>Add Train</div>
+        <div class="input-div">Add Train</div>
         <article>
-            <div>
-                <label for="trainName">Train Name</label> 
-                <input type="text" id="trainName">
+            <div class="input-div">
+                <label for="trainName">Train Name</label>
+                <input type="text" id="train-name" placeholder="Enter Name of Train">
             </div>
-            <div>
+            <div class="input-div">
                 <label for="destination">Destination</label>
-                <input type="text" id="destination">
+                <input type="text" id="destination" placeholder="Enter Destination">
             </div>
-            <div>
-                <label for="firstTime">First Train Time (HH:mm - military time)</label>
-                <input type="text" id="firstTime">
+            <div class="input-div">
+                <label for="firstTime">First Departure Time (HH:mm - military time)</label>
+                <input type="text" id="first-time" placeholder="Enter Initial Departure Time (ex. 13:00)">
             </div>
-            <div>
+            <div class="input-div">
                 <label for="frequency">Frequency (mins)</label>
-                <input type="text" id="frequency">
+                <input type="text" id="frequency" placeholder="Enter Frequency of Arrivals in Minutes">
             </div>
-            <div id="submitButton">Submit</div>
+            <div id="submit-button">Submit</div>
         </article>
     </section>
+    
+    <script src="assets/javascript/app.js"></script>
+
 </body>
 </html>

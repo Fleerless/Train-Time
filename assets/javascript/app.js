@@ -53,9 +53,12 @@ var firebaseConfig = {
         //======================
 
         var trainMoment = moment(firstTime, "hh:mm");
+        console.log("MOMENT: ", trainMoment)
         // Calculate minutes from start time until next arrival
-        var currentTime = moment().diff(moment(trainMoment), "m");
+        var currentTime = Math.abs(moment().diff(moment(trainMoment), "m"));
+        console.log("CURRENT: ", currentTime)
         var minsAway = frequency - (currentTime % frequency);
+        console.log("AWAY: ", minsAway) 
         if (minsAway === parseInt(frequency)){
             minsAway = 0;
         }
@@ -81,7 +84,6 @@ var firebaseConfig = {
         fullTime = moment().format('llll');
         $("#current-time").append(fullTime);
     }
-    var intervalTime = setInterval(appendTime, 1000);
 
     // Create a function that calculates the time minutes to arrival for the train
 
@@ -102,21 +104,32 @@ var firebaseConfig = {
                 var trainMoment = moment(firstTime, "hh:mm:ss");
 
                 // Calculate minutes from start time until next arrival
-                var currentTime = moment().diff(moment(trainMoment), "m");
-
+                var currentTime = Math.abs(moment().diff(moment(trainMoment), "m"));
+                var count;
                 var minsAway = frequency - (currentTime % frequency);
                 if (minsAway === parseInt(frequency)){
                     minsAway = 0;
+                    count = 60
                 }
+// ================== ADD IF STATEMENT TO APPEND A 0:59 SECOND COUNTER ==========
+
                 // Use the calculated times to display the time of the next arrival
                 var nextArrival = moment().add(minsAway, "m").format("h:mm a");
     
                 // Update the relevant table elements
                 $("#"+tName).empty().append(nextArrival);
+                // =========== ADD IF STATEMENT TO APPEND EITHER MINSAWAY OR COUNT ==========
                 $("#"+frequency).empty().append(minsAway);
             })
         })
     }
+    var count = 60;
+    function arrivalMinute(){
+        count--;
+
+    }
+    var intervalTime = setInterval(appendTime, 1000);
+
     var updateArrivals = setInterval(updateArrivalTime, 1000)
     
     // })
